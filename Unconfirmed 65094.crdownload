@@ -1,0 +1,42 @@
+"""
+CTI 110
+P4LAB1A - Turtle Shapes in Loops
+Stevenson, 10/12/23
+"""
+import random
+import turtle
+
+t = turtle.Turtle()
+t.pensize(3)
+
+COLOR = ["pink", "red", "orange", "yellow", "green", "blue", "purple", "black"]
+colors = random.choice(COLOR)
+sides = random.randrange(3, 12)
+length = random.randrange(10, 50)
+angle = 360 / sides
+fill = True
+
+fill_clr = random.choice(COLOR)
+repeat = 10
+x = random.randrange(-200, 200) 
+y = random.randrange(-200, 200)
+t.pencolor(colors)
+
+for time in range(repeat):
+  t.penup()
+  t.goto(x,y)
+  t.pendown()
+  
+  if fill == True:
+    t.begin_fill()
+    t.fillcolor(fill_clr)
+  
+  t.forward(length)
+  t.right(angle)
+# draw a simple shape
+  for star_side in range(sides):
+    t.right(angle)
+    t.forward(length)
+  
+  if fill == True:
+    t.end_fill()
